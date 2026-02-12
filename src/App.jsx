@@ -1,5 +1,6 @@
 import './App.css';
 import { HashRouter, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Todo = () => {
   return <p>這是 Todo 頁面</p>;
@@ -10,6 +11,18 @@ const Login = () => {
 const Register = () => {
   return <p>這是註冊頁面</p>;
 };
+// LogOut 元件
+const LogOut = () => {
+  const  navigate = useNavigate();
+  return <button onClick={() => {navigate('/login')}}>登出</button>
+}
+// 在 Todo 元件中引入 LogOut 元件
+const Todo = () => {
+  return <Fragment>
+    <p>Todo</p>
+    <LogOut />
+  </Fragment>
+}
 
 function App() {
   return (
